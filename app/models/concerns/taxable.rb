@@ -6,7 +6,7 @@ module Concerns
     IMPORT_PERCENTAGE = 0.05
 
     def sales_tax_rate
-      basic_tax + import_tax
+      basic_tax_rate + import_tax_rate
     end
 
     def basic_tax_rate
