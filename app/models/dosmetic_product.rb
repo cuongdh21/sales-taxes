@@ -1,0 +1,2 @@
+class DosmeticProduct < Product
+end

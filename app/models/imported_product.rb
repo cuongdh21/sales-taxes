@@ -1,0 +1,2 @@
+class ImportedProduct < Product
+end
