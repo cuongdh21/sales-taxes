@@ -14,7 +14,7 @@ module Concerns
     end
 
     def import_tax_rate
-      try(:type) != 'ImportedProduct' ? 0 : IMPORT_PERCENTAGE
+      try(:type) == 'ImportedProduct' ? IMPORT_PERCENTAGE : 0
     end
   end
 end
