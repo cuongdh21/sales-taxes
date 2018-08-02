@@ -1,6 +1,5 @@
 module Helpers
   class PriceHelper
-
     DEFAULT_ROUNDED_DIGITS = 2
     DEFAULT_DISPLAYED_DIGITS = 2
 
@@ -9,7 +8,7 @@ module Helpers
     end
 
     def self.display(amount, number_of_digits = DEFAULT_DISPLAYED_DIGITS)
-      "%.#{number_of_digits}f" % amount
+      format("%.#{number_of_digits}f", amount)
     end
   end
 end

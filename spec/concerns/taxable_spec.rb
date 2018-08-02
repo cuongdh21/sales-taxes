@@ -10,8 +10,8 @@ RSpec.describe Concerns::Taxable do
     end
   end
 
-  describe "#basic_tax_rate" do
-    context "on tax exemped product" do
+  describe '#basic_tax_rate' do
+    context 'on tax exemped product' do
       let(:exemped_product) { TaxableTestClass.new(tax_exempted: true) }
 
       it 'should be 0' do
@@ -19,7 +19,7 @@ RSpec.describe Concerns::Taxable do
       end
     end
 
-    context "on non-tax-exemped product" do
+    context 'on non-tax-exemped product' do
       let(:non_exemped_product) { TaxableTestClass.new(tax_exempted: false) }
 
       it 'should be 0.1' do
@@ -28,8 +28,8 @@ RSpec.describe Concerns::Taxable do
     end
   end
 
-  describe "#import_tax_rate" do
-    context "on imported product" do
+  describe '#import_tax_rate' do
+    context 'on imported product' do
       let(:imported_product) { TaxableTestClass.new(type: 'ImportedProduct') }
 
       it 'should be 0.05' do
@@ -37,7 +37,7 @@ RSpec.describe Concerns::Taxable do
       end
     end
 
-    context "on dosmetic product" do
+    context 'on dosmetic product' do
       let(:dosmetic_product) { TaxableTestClass.new(type: 'DosmeticProduct') }
 
       it 'should be 0' do

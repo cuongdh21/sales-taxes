@@ -8,7 +8,7 @@ RSpec.describe Receipt, type: :model do
 
   after { File.delete(csv_out_path) if File.exist?(csv_out_path) }
 
-  describe ".csv_transform" do
+  describe '.csv_transform' do
     context 'input1' do
       let(:input1_path) { Rails.root.join(export_path, 'input1.csv') }
       let(:output1_path) { Rails.root.join(export_path, 'output1.csv') }
@@ -59,5 +59,5 @@ RSpec.describe Receipt, type: :model do
         expect(actual_csv).to eq(expected_csv)
       end
     end
-  end  
+  end
 end
