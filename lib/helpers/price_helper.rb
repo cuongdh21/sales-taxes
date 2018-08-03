@@ -1,10 +1,11 @@
 module Helpers
   class PriceHelper
-    DEFAULT_ROUNDED_DIGITS = 2
+    DEFAULT_ROUND_TO_NEAREST = 0.01
     DEFAULT_DISPLAYED_DIGITS = 2
 
-    def self.round(amount, number_of_digits = DEFAULT_ROUNDED_DIGITS)
-      amount.round(number_of_digits)
+    def self.round(amount, round_to_nearest = DEFAULT_ROUND_TO_NEAREST)
+      scale = 1 / round_to_nearest
+      (amount * scale).round / scale
     end
 
     def self.display(amount, number_of_digits = DEFAULT_DISPLAYED_DIGITS)
