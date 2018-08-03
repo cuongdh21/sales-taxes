@@ -13,7 +13,7 @@ RSpec.describe DosmeticProduct, type: :model do
     let!(:dosmetic_product) { create(:dosmetic_product, unit_price: 15.25) }
 
     it 'should be 10% of unit price rounded up to 2 digits' do
-      expect(dosmetic_product.sales_tax).to eq(1.53)
+      expect(dosmetic_product.sales_tax).to eq(1.55)
     end
   end
 end

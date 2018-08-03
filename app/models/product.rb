@@ -9,8 +9,7 @@ class Product < ApplicationRecord
   end
 
   def total_price
-    amount = unit_price + sales_tax
-    Helpers::PriceHelper.round amount
+    unit_price + sales_tax
   end
 
   def self.import_from_csv(csv_file)
