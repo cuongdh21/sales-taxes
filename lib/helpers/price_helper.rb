@@ -1,6 +1,6 @@
 module Helpers
   class PriceHelper
-    DEFAULT_ROUND_TO_NEAREST = 0.01
+    DEFAULT_ROUND_TO_NEAREST = 0.05
     DEFAULT_DISPLAYED_DIGITS = 2
 
     def self.round(amount, round_to_nearest = DEFAULT_ROUND_TO_NEAREST)

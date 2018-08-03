@@ -34,7 +34,7 @@ RSpec.describe Receipt, type: :model do
         Product.import_from_csv(input2_path)
       end
 
-      it 'should return output1' do
+      it 'should return output2' do
         Receipt.csv_transform input2_path, csv_out_name
 
         actual_csv = CSV.read(csv_out_path)
@@ -51,7 +51,7 @@ RSpec.describe Receipt, type: :model do
         Product.import_from_csv(input3_path)
       end
 
-      it 'should return output1' do
+      it 'should return output3' do
         Receipt.csv_transform input3_path, csv_out_name
 
         actual_csv = CSV.read(csv_out_path)
