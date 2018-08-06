@@ -5,7 +5,7 @@ module Helpers
 
     def self.round(amount, round_to_nearest = DEFAULT_ROUND_TO_NEAREST)
       scale = 1 / round_to_nearest
-      (amount * scale).round / scale
+      (amount * scale).ceil / scale
     end
 
     def self.display(amount, number_of_digits = DEFAULT_DISPLAYED_DIGITS)
