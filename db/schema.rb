@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_01_142724) do
+ActiveRecord::Schema.define(version: 2018_08_06_153429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "payment_types", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "payment_method", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.string "name", null: false
@@ -30,4 +37,20 @@ ActiveRecord::Schema.define(version: 2018_08_01_142724) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.float "total_amount", null: false
+    t.string "status"
+    t.string "payment_gateway"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "payment_type_id"
+    t.bigint "receipt_id"
+    t.index ["payment_gateway"], name: "index_transactions_on_payment_gateway"
+    t.index ["payment_type_id"], name: "index_transactions_on_payment_type_id"
+    t.index ["receipt_id"], name: "index_transactions_on_receipt_id"
+    t.index ["status"], name: "index_transactions_on_status"
+  end
+
+  add_foreign_key "transactions", "payment_types"
+  add_foreign_key "transactions", "receipts"
 end
