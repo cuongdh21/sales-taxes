@@ -1,13 +1,13 @@
 class PaymentGateway
   module Adapters
     module Braintree
-      def self.pay transaction
+      def self.pay(transaction)
         transaction.payment_type.payment_method == 'CARD_CREDIT' ? transaction.success(:braintree) : transaction.fail
       end
     end
 
     module Wirecard
-      def self.pay transaction
+      def self.pay(transaction)
         transaction.payment_type.payment_method == 'CARD_DEBIT' ? transaction.success(:wirecard) : transaction.fail
       end
     end
@@ -23,7 +23,7 @@ class PaymentGateway
     @adapter = Adapters.const_get(adapter.to_s.capitalize)
   end
 
-  def pay transaction
+  def pay(transaction)
     adapter.pay transaction
   end
 end
